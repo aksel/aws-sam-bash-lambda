@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS SAM bash lambda
+
+Resources:
+  BashLambda:
+    Type: AWS::Serverless::Function
+    Metadata:
+      Dockerfile: src/bash_lambda/Dockerfile
+      DockerContext: .
+    Properties:
+      PackageType: Image
+      Timeout: 15
+
+  PythonLambda:
+    Type: AWS::Serverless::Function
+    Metadata:
+      Dockerfile: src/python_lambda/Dockerfile
+      DockerContext: .
+    Properties:
+      PackageType: Image
+      Timeout: 15
